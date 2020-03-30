@@ -25,7 +25,7 @@ Project is part of the [MAS programme in Architecture and Digital Fabrication](h
 ## Tutors
 
 * David Jenny [github](https://github.com/DavidJenny/)  [email](mailto:david.jenny@arch.ethz.ch)
-* Nicolas Feihl [email](mailto:feihl@arch.ethz.ch)
+* Nicolas Feihl [github](https://github.com/feihln/)  [email](mailto:feihl@arch.ethz.ch)
 * Coralie Ming [email](mailto:ming@arch.ethz.ch)
 
 ## Collaborators
