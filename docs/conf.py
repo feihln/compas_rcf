@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
+
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 # If your documentation needs a minimal Sphinx version, state it here.
+import sphinx_compas_theme
+
 #
 # needs_sphinx = "1.0"
-
 from compas_rcf import __version__
-import sphinx_compas_theme
 
 # -- General configuration ------------------------------------------------
 
@@ -39,7 +44,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx_autodoc_typehints",
+    "matplotlib.sphinxext.plot_directive",
 ]
 
 # autodoc options
@@ -48,12 +53,13 @@ autodoc_default_options = {
     "special-members": "__init__",
     "exclude-members": "__weakref__",
     "undoc-members": True,
-    "private-members": True,
     "show-inheritance": True,
 }
 
-autodoc_typehints = "signature"
-autodoc_mock_imports = ["Rhino", "tkinter"]
+autodoc_mock_imports = [
+    "Rhino",
+    "tkinter",
+]
 autodoc_member_order = "alphabetical"
 
 autoclass_content = "class"
@@ -81,7 +87,7 @@ napoleon_use_rtype = False
 # intersphinx options
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/", None),
+    "python": ("https://docs.python.org/3/", "https://docs.python.org/3/objects.inv"),
     "compas": (
         "https://compas-dev.github.io/main",
         "https://compas-dev.github.io/main/objects.inv",
@@ -89,6 +95,10 @@ intersphinx_mapping = {
     "compas_fab": (
         "https://gramaziokohler.github.io/compas_fab/latest/",
         "https://gramaziokohler.github.io/compas_fab/latest/objects.inv",
+    ),
+    "confuse": (
+        "https://confuse.readthedocs.io/en/latest/",
+        "https://confuse.readthedocs.io/en/latest/objects.inv",
     ),
 }
 
@@ -101,6 +111,7 @@ html_theme_options = {
     "package_name": "compas_rcf",
     "package_title": project,
     "package_version": release,
+    "package_repo": "https://github.com/tetov/compas_rcf",
 }
 
 html_context: dict = {}
