@@ -45,7 +45,7 @@ In short, this is how that works.
 4. (Optional) Make package accessible in Rhino and Grasshopper
 
    ```bash
-   python -m compas_rcf.rhino.install
+   python -m compas_rhino.install -p compas compas_fab compas_rcf
    ```
 
 ### Make a pull request
