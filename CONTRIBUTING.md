@@ -11,7 +11,7 @@ In short, this is how that works.
 
 **Important:** All code related to fabrication with ABB industrial robots requires [compas_rrc](https://bitbucket.org/ethrfl/compas_rrc/) which is hosted in a private repository.
 
-1. Fork [the repository](https://github.com/tetov/compas_rcf) and clone the fork.
+1. Fork [the repository](https://github.com/feihln/compas_rcf) and clone the fork.
 
 2. (Optional) Create a virtual environment using your tool of choice (e.g. `virtualenv`, `conda`, etc).
 
