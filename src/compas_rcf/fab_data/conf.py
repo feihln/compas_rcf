@@ -4,6 +4,7 @@ from __future__ import division
 from __future__ import print_function
 
 import logging
+import os
 
 import confuse
 import questionary
@@ -17,6 +18,7 @@ except ImportError:
 
 __all__ = ["fab_conf", "interactive_conf_setup", "ZoneDataTemplate"]
 
+HERE = pathlib.Path(os.path.dirname(__file__)).resolve()
 
 log = logging.getLogger(__name__)
 
@@ -40,12 +42,11 @@ class ZoneDataTemplate(confuse.Template):
         return ZONE_DICT[value.upper()]
 
 
-ROBOT_CONTROL_FOLDER_DRIVE = pathlib.Path(
-    "G:\\Shared drives\\2020_MAS\\T2_P1\\02_Groups\\Phase2\\rcf_fabrication\\02_robot_control"  # noqa: E501
-)
-DEFAULT_CONF_DIR = ROBOT_CONTROL_FOLDER_DRIVE / "05_fabrication_confs"
-DEFAULT_JSON_DIR = ROBOT_CONTROL_FOLDER_DRIVE / "04_fabrication_data_jsons"
-DEFAULT_LOG_DIR = ROBOT_CONTROL_FOLDER_DRIVE / "06_fabrication_logs"
+FAB_DATA_FOLDER = pathlib.Path(HERE)
+
+DEFAULT_CONF_DIR = FAB_DATA_FOLDER / "01_fabrication_confs"
+DEFAULT_JSON_DIR = FAB_DATA_FOLDER / "00_fabrication_data_jsons"
+DEFAULT_LOG_DIR = FAB_DATA_FOLDER / "02_fabrication_logs"
 
 
 class Path(confuse.Filename):
@@ -120,6 +121,9 @@ ABB_RCF_CONF_TEMPLATE = {
         "sleep_after_up": confuse.Number(default=5),
     },
 }
+
+# force relative paths in the config file to resolve here
+os.environ["FABRICATIONRUNNERDIR"] = str(pathlib.Path(HERE))
 
 fab_conf = confuse.LazyConfig("FabricationRunner", modname=__name__)
 
