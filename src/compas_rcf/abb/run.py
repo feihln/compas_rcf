@@ -92,7 +92,7 @@ def logging_setup():
     try:
         if not fab_conf["skip_logfile"].get():
             handlers.append(log.FileHandler(log_file, mode="a"))
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         print("""\n
             The logging directory specified in the default configuration doesn't exist\n
             Try running without logging: python -m compas_rcf.abb.run --skip-logfile\n
