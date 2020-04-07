@@ -10,7 +10,7 @@ python module for MAS DFAB project Rapid Clay Formations
 * [Example files](https://compas_rcf.tetov.se/examples.html) - for demonstration purposes
 * [Contributing](https://compas_rcf.tetov.se/contributing.html) - how to start working on the code
 * [Known issues](https://compas_rcf.tetov.se/known_issues.html) - for things that we know don't work
-* [Issues](https://github.com/tetov/compas_rcf/issues) - for unknown issues, as well as suggestions and questions
+* [Issues](https://github.com/feihl/compas_rcf/issues) - for unknown issues, as well as suggestions and questions
 * [Documentation](https://compas_rcf.tetov.se/)
 
 ## COMPAS
