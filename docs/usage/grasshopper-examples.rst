@@ -34,4 +34,4 @@ Send commands to ABB controller
    :figclass: figure
    :class: figure-img img-fluid
 
-   :download:`abb_robot_control.gh <./create_edit_fab_data.gh>`.
+   :download:`abb_robot_control.gh <./abb_robot_control.gh>`.
