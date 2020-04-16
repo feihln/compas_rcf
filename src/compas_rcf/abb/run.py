@@ -12,6 +12,7 @@ import sys
 import time
 from datetime import datetime
 from operator import attrgetter
+from subprocess import CalledProcessError as subCalledProcessError
 
 from compas.geometry import Frame
 from compas.geometry import Point
@@ -30,6 +31,7 @@ from compas_rcf.abb import place_bullet
 from compas_rcf.abb import post_procedure
 from compas_rcf.abb import pre_procedure
 from compas_rcf.docker import compose_up
+from compas_rcf.docker import kill_and_prune_all_containers
 from compas_rcf.fab_data import ClayBulletEncoder
 from compas_rcf.fab_data import fab_conf
 from compas_rcf.fab_data import interactive_conf_setup
@@ -196,7 +198,15 @@ def main():
     # Docker setup                                                            #
     ############################################################################
     ip = {"ROBOT_IP": ROBOT_IPS[fab_conf["target"].as_str()]}
-    compose_up(DOCKER_COMPOSE_PATHS["driver"], check_output=True, env_vars=ip)
+    try:
+        compose_up(DOCKER_COMPOSE_PATHS["driver"], check_output=True, env_vars=ip)
+    except subCalledProcessError:
+        """When containers are running for several days/weeks, they sometime have
+        to be killed in order to restart them.
+        """
+        kill_and_prune_all_containers()
+        compose_up(DOCKER_COMPOSE_PATHS["driver"], check_output=True, env_vars=ip,
+                   force_recreate=True)
     log.debug("Driver services are running.")
 
     ############################################################################
