@@ -15,7 +15,7 @@ python module for MAS DFAB project Rapid Clay Formations
 
 ## COMPAS
 
-`compas_rcf` is part is built on top of [`compas`](https://compas-dev.github.io/),
+`compas_rcf` is built on top of [`compas`](https://compas-dev.github.io/),
  [`compas_fab`](https://gramaziokohler.github.io/compas_fab/) and
  [`compas_rrc`](https://bitbucket.org/ethrfl/compas_rrc/).
 
